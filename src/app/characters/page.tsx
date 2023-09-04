@@ -5,10 +5,10 @@ import {BASE_URL} from "@app/const/api";
 import { Pagination } from './pagination';
 
 interface ISearchParams {
-    param
+    page: string;
 }
 
-async function getData(searchParams) {
+async function getData(searchParams: ISearchParams) {
     const page = searchParams?.page ?? 1
     const res = await fetch(`${BASE_URL}/character?page=${page}`, {
         next: {revalidate: 100}
